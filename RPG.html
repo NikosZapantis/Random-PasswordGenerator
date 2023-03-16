@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="RPGstyle.css">
+    <link rel="icon" href="RPGfavicon.jpg">
+    <script type="text/javascript" src="RPGscript.js"></script>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Random Password Generator</title>
+
+    </head>
+
+    <body>
+
+        <div class="Container">
+
+                <h1>Random Password Generator</h1>
+                
+            <br>
+            <div class="Display">
+                <input id="display" type="text" placeholder="GENERATE A PASSWORD" readonly/>
+                <button id="copyBtn" onclick="CopyPass()"><i class="fa fa-clipboard"></i></button>
+            </div>
+
+            <div class="slider">
+                <p>Your password's length : <span id="amount">8</span></p>
+                
+                <input class="inputRange" type="range" min="4" max="30" value="8" step="1" oninput="showAmount(this.value)"/>
+                
+            </div>
+
+            <br>
+            <div class="options">
+                <p class="Option-select">&emsp;&emsp;<u>SELECT :</u></p>
+                <div class="option">
+                    <label class="switch" for="uppercaseLet">Uppercase Letters
+                        <input type="checkbox" checked="checked" id="uppercaseLet">
+                        <span class="slider round"></span>
+                    </label>      
+                </div>
+                
+                <br><br>
+                <div class="option">
+                    <label class="switch" for="lowercaseLet">Lowercase Letters
+                        <input type="checkbox" checked="checked" id="lowercaseLet">
+                        <span class="slider round"></span> 
+                    </label>
+                </div>
+
+                <br><br>
+                <div class="option">
+                    <label class="switch" for="numbers">Include Numbers&nbsp;&nbsp;
+                        <input type="checkbox" checked="checked" id="numbers">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <br><br>
+                <div class="option">
+                    <label class="switch" for="symbols">Include Symbols&nbsp;&nbsp;
+                        <input type="checkbox" id="symbols">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <br>
+            </div>
+
+            <br><br>
+            <button id="generateBtn" onclick="generatePass()">
+                <i class="fa fa-refresh fa-spin"></i>
+            </button>
+            <br><br>
+        </div>
+    </body>
+</html>

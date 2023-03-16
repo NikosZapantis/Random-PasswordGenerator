@@ -1,0 +1,226 @@
+body {
+    background-color: #191b28;
+    text-align: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+span, p{
+    text-align: center;
+    color: beige !important;
+}
+
+.Option-select {
+    text-align: left;
+    font-size: large;
+}
+
+h1 {
+    background-color: transparent;
+    color: beige;
+    border-radius: 25px;
+    width: 40%;
+    height: 80%;
+    margin: auto;
+    transform-style: preserve-3d;
+}
+
+h1:hover {
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: flip 3s ease-in-out infinite;
+}
+
+@keyframes flip {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(180deg);
+    }
+    100% {
+      transform: rotateX(360deg);
+    }
+}
+
+#amount {
+    font-size: 130%;
+    bottom: -20px;
+    color: #64a388 !important;
+}
+
+.options {
+    border: solid 2px black;
+    border-radius: 15px;
+    border-color: #336e67;
+    width: 25%;
+    height: 50%;
+    margin: auto;
+    box-shadow: inset 0 0 40px #000000;
+}
+
+.Container {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 150vh;
+    padding: 15px;
+    border-left-width: 25px;
+    border: solid 2px;
+    border-color: #336e67;
+    border-radius: 25px;
+    box-shadow: -36px 32px 14px 1px rgba(0, 0, 0, 0.8);
+}
+
+#display {
+    padding: 8px;
+    width: 17%;
+    height: 7%;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    background-color: transparent;
+    color: #f9f9ed;
+    border-color: #336e67;
+    cursor: default;
+    text-overflow: ellipsis;
+}
+
+#copyBtn {
+    width: 2.5%;
+    height: 5%;
+    padding: 6px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #9fd3c7;
+    cursor: pointer;
+}
+
+#copyBtn:hover {
+    width: 2.5%;
+    height: 5%;
+    padding: 6px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #336e67;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#generateBtn {
+    width: 7%;
+    height: 14%;
+    padding: 8px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #9fd3c7;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#generateBtn:hover {
+    width: 3%;
+    height: 6%;
+    padding: 6px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #336e67;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.inputRange {
+    -webkit-appearance: none;
+    width: 15%;
+    height: 20px;
+    background-color: transparent;
+    border: solid 2px;
+    border-color: #385170;
+    border-radius: 25px;
+    margin: 20px 0;
+}
+  
+.inputRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 7px;
+    height: 35px;
+    background-color: rgb(10, 240, 209);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#uppercaseLet, #lowercaseLet, #numbers, #symbols {
+    cursor: pointer;
+    color: beige;
+}
+
+.switch {
+    color: beige;
+    margin: auto;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    -webkit-appearance: none;
+    background: #fff;
+    outline: none;
+    border-radius: 25px;
+    transition: .3s;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    bottom: -10px;
+}
+
+input:checked[type="checkbox"] {
+    background-color: #336e67;
+}
+
+input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #336e67;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px (0,0,0,0.2);
+    transition: .3s;
+}
+
+input:checked[type="checkbox"]:before {
+    left: 25px;
+    background: #fff;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.switch {
+    color: beige;
+    font-size: 110%;
+}
+
+::placeholder {
+    color: #999999;
+}
