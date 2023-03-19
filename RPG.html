@@ -3,8 +3,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="RPGstyle.css">
-    <link rel="icon" href="RPGfavicon.jpg">
+    <link rel="icon" href="xRPGfavicon.jpg">
     <script type="text/javascript" src="RPGscript.js"></script>
 
     <head>
@@ -24,15 +25,16 @@
             <div class="Display">
                 <input id="display" type="text" placeholder="GENERATE A PASSWORD" readonly/>
                 <button id="copyBtn" onclick="CopyPass()"><i class="fa fa-clipboard"></i></button>
+                <br>
+                <button id="resetBtn" onclick="ClearPass()"><i class="fas fa-broom"></i></button>
             </div>
 
             <div class="slider">
                 <p>Your password's length : <span id="amount">8</span></p>
-                
                 <input class="inputRange" type="range" min="4" max="30" value="8" step="1" oninput="showAmount(this.value)"/>
                 
             </div>
-            
+
             <br>
             <div class="options">
                 <p class="Option-select">&emsp;&emsp;<u>SELECT :</u></p>
