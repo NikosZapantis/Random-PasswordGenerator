@@ -77,13 +77,19 @@ function generatePass() {
 }
 
 function CopyPass() {
-
   var copyIn = document.getElementById('display');
 
-  copyIn.select();
-  copyIn.setSelectionRange(0, 999999);
+  if(copyIn.value !== "") {
 
-  navigator.clipboard.writeText(copyIn.value);
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
 
-  alert("Password copied to clipboard ✔️");
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+  
 }
