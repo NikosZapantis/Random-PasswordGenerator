@@ -76,8 +76,9 @@ h1:hover {
 }
 
 #display {
+    text-align: center;
     padding: 8px;
-    width: 17%;
+    width: 18%;
     height: 7%;
     border: solid 2px;
     outline-style: none;
@@ -108,6 +109,36 @@ h1:hover {
     width: 2.5%;
     height: 5%;
     padding: 6px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #336e67;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#resetBtn {
+    width: 22%;
+    height: 5%;
+    position: relative;
+    top: 10px;
+    padding: 6px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #9fd3c7;
+    cursor: pointer;
+}
+
+#resetBtn:hover {
+    width: 22%;
+    height: 5%;
+    padding: 6px;
+    top: 9px;
     border-radius: 10px;
     border: solid 2px;
     outline-style: none;
@@ -183,7 +214,7 @@ input[type="checkbox"] {
     width: 50px;
     height: 25px;
     -webkit-appearance: none;
-    background: #fff;
+    background: #dcdcdc;
     outline: none;
     border-radius: 25px;
     transition: .3s;
@@ -212,7 +243,7 @@ input[type="checkbox"]:before {
 
 input:checked[type="checkbox"]:before {
     left: 25px;
-    background: #fff;
+    background: #dcdcdc;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
 }
 
