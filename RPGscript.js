@@ -3,6 +3,11 @@ const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
 const NUMBERS ="0123456789";
 const SYMBOLS ="!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
 
+function ClearPass() {
+
+  document.getElementById('display').value = "";
+}
+
 function showAmount(newAmount) {
   
   document.getElementById('amount').innerHTML = newAmount;
