@@ -1,9 +1,10 @@
-const UPPERCASE_LETTERS ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//Consts declaration
+const UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
-const NUMBERS ="0123456789";
-const SYMBOLS ="!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
+const NUMBERS = "0123456789";
+const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
 
-function ClearPass() {
+function ClearPass() { //This function reset the current password
 
   document.getElementById('display').value = "";
 }
@@ -22,12 +23,14 @@ function generatePass() {
   var IncNumbers = document.getElementById('numbers').checked;
   var IncSymbols = document.getElementById('symbols').checked;
 
-  if(!IncUppercase && !IncLowercase && !IncNumbers && !IncSymbols) {
+  if(!IncUppercase && !IncLowercase && !IncNumbers && !IncSymbols) { //Checking if at least one option is selected
     alert("None of the options are selected ! Please try again.");
+    return;
   }
 
   var charset = '';
   
+  //charset declaration
   if(IncUppercase) {
     charset += UPPERCASE_LETTERS;
   }
@@ -50,6 +53,7 @@ function generatePass() {
   var containsNumber = !IncNumbers;
   var containsSymbol = !IncSymbols;
 
+  //Checking if at least one of each category is included in the password
   while(!(containsUppercase && containsLowercase && containsNumber && containsSymbol)){
     password = '';
     var containsUppercase = !IncUppercase;
@@ -81,7 +85,7 @@ function generatePass() {
 
 }
 
-function CopyPass() {
+function CopyPass() { //This function enables the feature of copying the password
   var copyIn = document.getElementById('display');
 
   if(copyIn.value !== "") {
@@ -96,5 +100,4 @@ function CopyPass() {
 
     alert("Password is blank ! Please click to generate a password.❌");
   }
-  
 }
