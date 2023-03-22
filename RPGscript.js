@@ -4,6 +4,9 @@ const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
 const NUMBERS = "0123456789";
 const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
 
+const MAX_RECENT_PASSWORDS = 5; // Maximum number of recent passwords to display
+let recentPasswords = []; // Array to store the generated passwords
+
 function ClearPass() { //This function reset the current password
 
   document.getElementById('display').value = "";
@@ -82,10 +85,29 @@ function generatePass() {
   }
 
   document.getElementById('display').value = password;
+  
+  // Pushing the generated password to the recent passwords array
+  recentPasswords.push(password);
 
+  // If the recent passwords array is longer than the maximum allowed, remove the oldest passwords
+  if (recentPasswords.length > MAX_RECENT_PASSWORDS) {
+    recentPasswords.splice(0, recentPasswords.length - MAX_RECENT_PASSWORDS);
+  }
+
+  // Loop through the recent passwords array and update the Fpass fields
+  for (let i = 1; i <= MAX_RECENT_PASSWORDS; i++) {
+    const recentPassword = recentPasswords[recentPasswords.length - i];
+    const fieldId = `Fpass${i}`;
+    if (recentPassword) {
+      document.getElementById(fieldId).value = recentPassword;
+    } else {
+      document.getElementById(fieldId).value = '';
+    }
+  }
+  
 }
 
-function CopyPass() { //This function enables the feature of copying the password
+function CopyPassMain() { //This function enables the feature of copying the password
   var copyIn = document.getElementById('display');
 
   if(copyIn.value !== "") {
@@ -100,4 +122,141 @@ function CopyPass() { //This function enables the feature of copying the passwor
 
     alert("Password is blank ! Please click to generate a password.❌");
   }
+}
+
+//Copying specific passwords from the most-recent list
+function CopyPassMR1() {
+  var copyIn = document.getElementById('Fpass1');
+
+  if(copyIn.value !== "") {
+
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
+
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+}
+
+function CopyPassMR2() {
+  var copyIn = document.getElementById('Fpass2');
+
+  if(copyIn.value !== "") {
+
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
+
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+}
+
+function CopyPassMR3() {
+  var copyIn = document.getElementById('Fpass3');
+
+  if(copyIn.value !== "") {
+
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
+
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+}
+
+function CopyPassMR4() {
+  var copyIn = document.getElementById('Fpass4');
+
+  if(copyIn.value !== "") {
+
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
+
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+}
+
+function CopyPassMR5() {
+  var copyIn = document.getElementById('Fpass5');
+
+  if(copyIn.value !== "") {
+
+    copyIn.select();
+    copyIn.setSelectionRange(0, 999999);
+  
+    navigator.clipboard.writeText(copyIn.value);
+    
+    alert("Password copied to clipboard ✔️");
+  }else {
+
+    alert("Password is blank ! Please click to generate a password.❌");
+  }
+}
+
+//Removing specific passwords from the most-recent list
+function RemovePassMR1() {
+  var pass1 = document.getElementById('Fpass1');
+  var pass2 = document.getElementById('Fpass2');
+  var pass3 = document.getElementById('Fpass3');
+  var pass4 = document.getElementById('Fpass4');
+  var pass5 = document.getElementById('Fpass5');
+
+  pass1.value = pass2.value;
+  pass2.value = pass3.value;
+  pass3.value = pass4.value;
+  pass4.value = pass5.value;
+  pass5.value = "";
+}
+
+function RemovePassMR2() {
+  var pass2 = document.getElementById('Fpass2');
+  var pass3 = document.getElementById('Fpass3');
+  var pass4 = document.getElementById('Fpass4');
+  var pass5 = document.getElementById('Fpass5');
+
+  pass2.value = pass3.value;
+  pass3.value = pass4.value;
+  pass4.value = pass5.value;
+  pass5.value = "";
+}
+
+function RemovePassMR3() {
+  var pass3 = document.getElementById('Fpass3');
+  var pass4 = document.getElementById('Fpass4');
+  var pass5 = document.getElementById('Fpass5');
+
+  pass3.value = pass4.value;
+  pass4.value = pass5.value;
+  pass5.value = "";
+}
+
+function RemovePassMR4() {
+  var pass4 = document.getElementById('Fpass4');
+  var pass5 = document.getElementById('Fpass5');
+
+  pass4.value = pass5.value;
+  pass5.value = "";
+}
+
+function RemovePassMR5() {
+  var pass5 = document.getElementById('Fpass5');
+
+  pass5.value = "";
 }
