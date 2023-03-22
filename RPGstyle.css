@@ -3,6 +3,7 @@ body {
     text-align: center;
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
+    overflow-x: hidden;
 }
 
 span, p{
@@ -13,6 +14,18 @@ span, p{
 .Option-select {
     text-align: left;
     font-size: large;
+    cursor: default;
+}
+
+h2 {
+    text-align: center;
+    background-color: transparent;
+    color: beige;
+    border: solid 2px #336e67;
+    border-radius: 25px;
+    width: 40%;
+    height: 6%;
+    margin: auto;
 }
 
 h1 {
@@ -75,6 +88,97 @@ h1:hover {
     box-shadow: -36px 32px 14px 1px rgba(0, 0, 0, 0.8);
 }
 
+.mostrecent-list {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    width: 30%;
+    height: 40%;
+    padding: 5px;
+    font-size: small;
+    right: 12%;
+    top: 15%;
+    cursor: default;
+}
+
+#MRcopyBtn1, #MRcopyBtn2, #MRcopyBtn3, #MRcopyBtn4, #MRcopyBtn5 {
+    width: 5%;
+    height: 7%;
+    padding: 4px;
+    position: absolute;
+    border-radius: 15px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #9fd3c7;
+    cursor: pointer;
+    right: 16%;
+}
+
+#MRcopyBtn1:hover, #MRcopyBtn2:hover, #MRcopyBtn3:hover, #MRcopyBtn4:hover, #MRcopyBtn5:hover {
+    width: 5%;
+    height: 7%;
+    padding: 4px;
+    border-radius: 10px;
+    border: solid 2px;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: #336e67;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#MRdeleteBtn1, #MRdeleteBtn2, #MRdeleteBtn3, #MRdeleteBtn4, #MRdeleteBtn5 {
+    width: 5%;
+    height: 7%;
+    padding: 4px;
+    position: absolute;
+    border-radius: 15px;
+    border: solid 2px black;
+    outline-style: none;
+    outline-color: none;
+    background-color: #d70000;
+    color: black;
+    cursor: pointer;
+    right: 9%;
+}
+
+#MRdeleteBtn1:hover, #MRdeleteBtn2:hover, #MRdeleteBtn3:hover, #MRdeleteBtn4:hover, #MRdeleteBtn5:hover {
+    width: 5%;
+    height: 7%;
+    padding: 4px;
+    position: absolute;
+    border-radius: 15px;
+    border: solid 2px black;
+    outline-style: none;
+    outline-color: none;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    right: 9%;
+    transition: 0.2s ease-in-out;
+}
+
+#Fpass1, #Fpass2, #Fpass3, #Fpass4, #Fpass5 {
+    margin: auto;
+    border-color: #336e67;
+    position: absolute;
+    right: 23.5%;
+    background-color: transparent;
+    color: transparent;
+    text-align: center;
+    width: 50%;
+    padding: 5px;
+    outline-style: none;
+    outline-color: none;
+    border-radius: 10px;
+    cursor: default;
+    color: #f9f9ed;
+    box-shadow: -18px 20px 14px 2px rgba(0, 0, 0, 0.8);
+}
+
 #display {
     text-align: center;
     padding: 8px;
@@ -90,6 +194,7 @@ h1:hover {
     border-color: #336e67;
     cursor: default;
     text-overflow: ellipsis;
+    box-shadow: -9px 10px 14px 2px rgba(0, 0, 0, 0.8);
 }
 
 #copyBtn {
@@ -132,6 +237,7 @@ h1:hover {
     background-color: transparent;
     color: #9fd3c7;
     cursor: pointer;
+    box-shadow: -9px 10px 14px 2px rgba(0, 0, 0, 0.8);
 }
 
 #resetBtn:hover {
@@ -147,6 +253,7 @@ h1:hover {
     color: #336e67;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    box-shadow: -9px 6px 14px 2px rgba(0, 0, 0, 0.8);
 }
 
 #generateBtn {
@@ -161,6 +268,7 @@ h1:hover {
     color: #9fd3c7;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    box-shadow: 0px 16px 14px 2px rgba(0, 0, 0, 0.8);
 }
 
 #generateBtn:hover {
@@ -186,6 +294,7 @@ h1:hover {
     border-color: #385170;
     border-radius: 25px;
     margin: 20px 0;
+    box-shadow: -9px 10px 14px 2px rgba(0, 0, 0, 0.8);
 }
   
 .inputRange::-webkit-slider-thumb {
