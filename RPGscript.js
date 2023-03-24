@@ -12,6 +12,12 @@ function ClearPass() { //This function reset the current password
   document.getElementById('display').value = "";
 }
 
+function RemovePastedPass() {
+
+  document.getElementById("AppliedPass").value = "";
+  document.getElementById("PasswordStrength").innerHTML = ""; // clear the password strength element
+}
+
 function showAmount(newAmount) {
   
   document.getElementById('amount').innerHTML = newAmount;
@@ -124,6 +130,33 @@ function CopyPassMain() { //This function enables the feature of copying the pas
   }
 }
 
+function PastePass() {
+  navigator.clipboard.readText().then((text) => {
+    document.getElementById("AppliedPass").value = text;
+
+    // Check password strength and update the PasswordStrength element
+    var password = text.trim();
+    var strength = "";
+    if (password.length < 12) {
+
+      strength = "Weak";
+      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength;
+    } else if (password.length < 18) {
+
+      strength = "Mid";
+      document.getElementById("PasswordStrength").innerHTML = "🟡 " + strength;
+    } else if (password.length < 25) {
+
+      strength = "Strong";
+      document.getElementById("PasswordStrength").innerHTML = "🟠 " + strength;
+    } else {
+
+      strength = "Super Strong";
+      document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength;
+    }
+  });
+}
+
 //Copying specific passwords from the most-recent list
 function CopyPassMR1() {
   var copyIn = document.getElementById('Fpass1');
@@ -223,6 +256,12 @@ function RemovePassMR1() {
   pass3.value = pass4.value;
   pass4.value = pass5.value;
   pass5.value = "";
+
+  recentPasswords[0] = pass5.value;
+  recentPasswords[1] = pass4.value;
+  recentPasswords[2] = pass3.value;
+  recentPasswords[3] = pass2.value;
+  recentPasswords[4] = pass1.value;
 }
 
 function RemovePassMR2() {
@@ -235,6 +274,11 @@ function RemovePassMR2() {
   pass3.value = pass4.value;
   pass4.value = pass5.value;
   pass5.value = "";
+
+  recentPasswords[0] = pass5.value;
+  recentPasswords[1] = pass4.value;
+  recentPasswords[2] = pass3.value;
+  recentPasswords[3] = pass2.value;
 }
 
 function RemovePassMR3() {
@@ -245,6 +289,10 @@ function RemovePassMR3() {
   pass3.value = pass4.value;
   pass4.value = pass5.value;
   pass5.value = "";
+
+  recentPasswords[0] = pass5.value;
+  recentPasswords[1] = pass4.value;
+  recentPasswords[2] = pass3.value;
 }
 
 function RemovePassMR4() {
@@ -253,10 +301,15 @@ function RemovePassMR4() {
 
   pass4.value = pass5.value;
   pass5.value = "";
+
+  recentPasswords[0] = pass5.value;
+  recentPasswords[1] = pass4.value;
 }
 
 function RemovePassMR5() {
   var pass5 = document.getElementById('Fpass5');
 
   pass5.value = "";
+
+  recentPasswords[0] = pass5.value;
 }
