@@ -115,5 +115,14 @@
                     <button id="MRdeleteBtn5" onclick="RemovePassMR5()"><i class="fa fa-trash"></i></button>
             </div>
         </div>
+
+        <div class="ApplyPass">
+            <h3>Check your password's strenght</h3>
+            <br><br>
+            <input id="AppliedPass" type="text" placeholder="N/A" readonly>
+            <button id="AppliedPassBtn" onclick="PastePass()"><i class="fa fa-paste"></i></button>
+            <button id="DeletePastedPassBtn" onclick="RemovePastedPass()"><i class="fa fa-trash"></i></button>
+            <div id="PasswordStrength" class="password-strength"></div>
+        </div>
     </body>
 </html>
