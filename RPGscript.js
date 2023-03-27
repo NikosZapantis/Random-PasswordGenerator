@@ -80,10 +80,10 @@ function generatePass() {
       if(IncLowercase && LOWERCASE_LETTERS.indexOf(randomChar) !== -1) {
         containsLowercase = true;
       }
-      if(IncNumbers && NUMBERS.indexOf(randomChar) !== -1){
+      if(IncNumbers && NUMBERS.indexOf(randomChar) !== -1) {
         containsNumber = true;
       }
-      if(IncSymbols && SYMBOLS.indexOf(randomChar) !== -1){
+      if(IncSymbols && SYMBOLS.indexOf(randomChar) !== -1) {
         containsSymbol = true;
       }
     }
@@ -130,30 +130,75 @@ function CopyPassMain() { //This function enables the feature of copying the pas
   }
 }
 
+//?DONE todo: Check if the password var is the same with one of the passwords of the most-recent list (No need to check the display because it's the most recent password)
+//?DONE todo: Devellop a serious algorithm that will really show if the password is categorized in the specific strenght
 function PastePass() {
   navigator.clipboard.readText().then((text) => {
     document.getElementById("AppliedPass").value = text;
 
     // Check password strength and update the PasswordStrength element
     var password = text.trim();
+    var maxUpperInclude = false;
+    var maxLowerInclude = false;
+    var maxNumInclude = false;
+    var maxSymInclude = false;
+    var strengthValue = 0;
     var strength = "";
-    if (password.length < 12) {
+
+    if(password !== recentPasswords[0] && password !== recentPasswords[1] && password !== recentPasswords[2] 
+      && password !== recentPasswords[3] && password !== recentPasswords[4]) {
+      
+      alert("There is no password copied in your clipboard!");
+      return;
+    }
+
+    if(SYMBOLS.split("").some(char => password.includes(char))) {
+
+      strengthValue += 7.2;
+      maxSymInclude = true;
+    }
+    if(UPPERCASE_LETTERS.split("").some(char => password.includes(char))) {
+
+      strengthValue += 4.3;
+      maxUpperInclude = true;
+    }
+    if(LOWERCASE_LETTERS.split("").some(char => password.includes(char))) {
+
+      strengthValue += 4.3;
+      maxLowerInclude = true;
+    }
+    if(NUMBERS.split("").some(char => password.includes(char))) {
+
+      strengthValue += 3.2;
+      maxNumInclude = true;
+    }
+
+    strengthValue += (password.length * 2.5);
+
+    if(strengthValue <= 25) {
 
       strength = "Weak";
-      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength;
-    } else if (password.length < 18) {
+      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength + " (" + strengthValue + "%)";
+    }else if(strengthValue <= 50) {
 
-      strength = "Mid";
-      document.getElementById("PasswordStrength").innerHTML = "🟡 " + strength;
-    } else if (password.length < 25) {
+      strength = "Normal";
+      document.getElementById("PasswordStrength").innerHTML = "🟡 " + strength + " (" + strengthValue + "%)";
+    }else if(strengthValue <= 75) {
 
       strength = "Strong";
-      document.getElementById("PasswordStrength").innerHTML = "🟠 " + strength;
-    } else {
+      document.getElementById("PasswordStrength").innerHTML = "🟠 " + strength + " (" + strengthValue + "%)";
+    }else {
 
       strength = "Super Strong";
-      document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength;
+      if((password.length == 30) && maxUpperInclude && maxLowerInclude && maxNumInclude && maxSymInclude) {
+
+        document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength + " (100%)";
+      }else {
+
+        document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength + " (" + strengthValue + "%)";
+      }
     }
+
   });
 }
 
