@@ -4,6 +4,10 @@ body {
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
     overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
 }
 
 span, p{
@@ -476,7 +480,6 @@ input:checked[type="checkbox"]:before {
 .password-strength {
     display: inline-block;
     padding-left: 20px;
-    background-image: url("ball.png");
     background-position: 0 50%;
     background-repeat: no-repeat;
     background-size: 10px 10px;
