@@ -126,7 +126,7 @@ function CopyPassMain() { //This function enables the feature of copying the pas
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -142,13 +142,19 @@ function PastePass() {
     var maxLowerInclude = false;
     var maxNumInclude = false;
     var maxSymInclude = false;
+    var uniqueChars = new Set(password).size;
     var strengthValue = 0;
     var strength = "";
 
-    if(password !== recentPasswords[0] && password !== recentPasswords[1] && password !== recentPasswords[2] 
-      && password !== recentPasswords[3] && password !== recentPasswords[4]) {
+    //?DONE todo: Even if it gets inside this statement it pastes the clipboard element of the user.
+    //?DONE todo: When you paste something that isn't in the list it erase the content but it still shows the rate of the strength {FIXED BY SHOWING A "NOT SUPPORTED" message}
+    //?DONE todo: When you delete a password from the list but you still try to apply the specific pass in the AppliedPass element it shows alert but still pastes the other pass
+    if(!recentPasswords.includes(password)) {
       
-      alert("There is no password copied in your clipboard!");
+      alert("The password you try to paste is not registered in the most-recent list!");
+      document.getElementById('AppliedPass').value = "";
+      strength = "Not supported";
+      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength;
       return;
     }
 
@@ -173,35 +179,38 @@ function PastePass() {
       maxNumInclude = true;
     }
 
+    //TODO: Have to change the rate of symbols numbers etc in the previous if statements
+    //TODO: Maybe a good idea will be to count how many characters of each category the password has and then multiply it's value with some specific points 
     strengthValue += (password.length * 2.5);
+    strengthValue += (uniqueChars * 1.2);
 
     if(strengthValue <= 25) {
 
       strength = "Weak";
-      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength + " (" + strengthValue + "%)";
+      document.getElementById("PasswordStrength").innerHTML = "🔴 " + strength + " (" + strengthValue.toFixed(2) + "%)";
     }else if(strengthValue <= 50) {
 
       strength = "Normal";
-      document.getElementById("PasswordStrength").innerHTML = "🟡 " + strength + " (" + strengthValue + "%)";
+      document.getElementById("PasswordStrength").innerHTML = "🟡 " + strength + " (" + strengthValue.toFixed(2) + "%)";
     }else if(strengthValue <= 75) {
 
       strength = "Strong";
-      document.getElementById("PasswordStrength").innerHTML = "🟠 " + strength + " (" + strengthValue + "%)";
+      document.getElementById("PasswordStrength").innerHTML = "🟠 " + strength + " (" + strengthValue.toFixed(2) + "%)";
     }else {
 
       strength = "Super Strong";
-      if((password.length == 30) && maxUpperInclude && maxLowerInclude && maxNumInclude && maxSymInclude) {
+      if(strengthValue > 100) {
 
         document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength + " (100%)";
       }else {
 
-        document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength + " (" + strengthValue + "%)";
+        document.getElementById("PasswordStrength").innerHTML = "🟢 " + strength + " (" + strengthValue.toFixed(2) + "%)";
       }
     }
-
   });
 }
 
+//TODO: Optimize the CopyPassMR from 5 to 1 function.
 //Copying specific passwords from the most-recent list
 function CopyPassMR1() {
   var copyIn = document.getElementById('Fpass1');
@@ -216,7 +225,7 @@ function CopyPassMR1() {
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -233,7 +242,7 @@ function CopyPassMR2() {
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -250,7 +259,7 @@ function CopyPassMR3() {
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -267,7 +276,7 @@ function CopyPassMR4() {
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -284,10 +293,11 @@ function CopyPassMR5() {
     alert("Password copied to clipboard ✔️");
   }else {
 
-    alert("Password is blank ! Please click to generate a password.❌");
+    alert("Please click to generate a password first.❌");
   }
 }
 
+//TODO: Optimize the RemovePassMR from 5 to 1 function.
 //Removing specific passwords from the most-recent list
 function RemovePassMR1() {
   var pass1 = document.getElementById('Fpass1');
