@@ -7,24 +7,13 @@ const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
 const MAX_RECENT_PASSWORDS = 5; // Maximum number of recent passwords to display
 let recentPasswords = []; // Array to store the generated passwords
 
-function ClearPass() { //This function reset the current password
-
-  document.getElementById('display').value = "";
-}
-
-function RemovePastedPass() {
-
-  document.getElementById("AppliedPass").value = "";
-  document.getElementById("PasswordStrength").innerHTML = ""; // clear the password strength element
-}
-
 function showAmount(newAmount) {
   
   document.getElementById('amount').innerHTML = newAmount;
 }
 
 function generatePass() {
-  var passwordlenght = document.querySelector('input.inputRange').value;
+  var passwordlength = document.querySelector('input.inputRange').value;
   var IncUppercase = document.getElementById('uppercaseLet').checked;
   var IncLowercase = document.getElementById('lowercaseLet').checked;
   var IncNumbers = document.getElementById('numbers').checked;
@@ -67,7 +56,7 @@ function generatePass() {
     var containsNumber = !IncNumbers;
     var containsSymbol = !IncSymbols;
 
-    for(var i = 0; i < passwordlenght; i++) {
+    for(var i = 0; i < passwordlength; i++) {
 
       var randomIndex = Math.floor(Math.random() * charset.length);
       var randomChar = charset.charAt(randomIndex);
@@ -113,23 +102,6 @@ function generatePass() {
 
       document.getElementById(fieldId).value = '';
     }
-  }
-}
-
-function CopyPassMain() { //This function enables the feature of copying the password
-  var copyIn = document.getElementById('display');
-
-  if(copyIn.value !== "") {
-
-    copyIn.select();
-    copyIn.setSelectionRange(0, 999999);
-  
-    navigator.clipboard.writeText(copyIn.value);
-    
-    alert("Password copied to clipboard ✔️");
-  }else {
-
-    alert("Please click to generate a password first.❌");
   }
 }
 
@@ -209,9 +181,9 @@ function PastePass() {
   });
 }
 
-//?DONE todo: Optimize the CopyPassMR from 5 to 1 function.
-//Copying specific passwords from the most-recent list
-function CopyPassMR(id) {
+//?DONE todo: Optimize the CopyPass from 5 to 1 function.
+//Copying specific passwords from the most-recent list & display
+function CopyPass(id) {
   var copyIn = document.getElementById(id);
 
   if(copyIn.value !== "") {
@@ -227,14 +199,15 @@ function CopyPassMR(id) {
   }
 }
 
-//?DONE todo: Optimize the RemovePassMR from 5 to 1 function.
-//Removing specific passwords from the most-recent list
-function RemovePassMR(index) {
+//?DONE todo: Optimize the RemovePass from 5 to 1 function.
+//Removing specific passwords from the most-recent list & display
+function RemovePass(index) {
   var pass1 = document.getElementById('Fpass1');
   var pass2 = document.getElementById('Fpass2');
   var pass3 = document.getElementById('Fpass3');
   var pass4 = document.getElementById('Fpass4');
   var pass5 = document.getElementById('Fpass5');
+  var display = document.getElementById('display');
 
   if(index == 1) {
 
@@ -258,9 +231,12 @@ function RemovePassMR(index) {
 
     pass4.value = pass5.value;
     pass5.value = "";
-  }else {
+  }else if(index == 5) {
 
     pass5.value = "";
+  } else if(index == 0) {
+
+    display.value = "";
   }
 
   recentPasswords[0] = pass5.value;
@@ -268,4 +244,10 @@ function RemovePassMR(index) {
   recentPasswords[2] = pass3.value;
   recentPasswords[3] = pass2.value;
   recentPasswords[4] = pass1.value;
+}
+
+function RemovePastedPass() {
+
+  document.getElementById("AppliedPass").value = "";
+  document.getElementById("PasswordStrength").innerHTML = ""; // clear the password strength element
 }
