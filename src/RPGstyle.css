@@ -95,7 +95,7 @@ h1:hover {
     align-items: center;
     justify-content: center;
     margin: auto;
-    width: 150vh;
+    width: 92%;
     padding: 15px;
     border-left-width: 25px;
     border: solid 2px;
@@ -112,32 +112,32 @@ h1:hover {
     height: 40%;
     padding: 5px;
     font-size: small;
-    right: 12%;
-    top: 15%;
+    right: 6%;
+    top: 17%;
     cursor: default;
 }
 
 #MRcopyBtn1, #MRcopyBtn2, #MRcopyBtn3, #MRcopyBtn4, #MRcopyBtn5 {
-    width: 5%;
-    height: 7%;
-    padding: 4px;
+    width: 7%;
+    height: 9%;
+    padding: 7px;
     position: absolute;
-    border-radius: 15px;
+    border-radius: 18px;
     border: solid 2px;
     outline-style: none;
     outline-color: none;
     background-color: transparent;
     color: #9fd3c7;
     cursor: pointer;
-    right: 16%;
+    right: 14%;
     transition: 0.2s ease-in-out;
 }
 
 #MRcopyBtn1:hover, #MRcopyBtn2:hover, #MRcopyBtn3:hover, #MRcopyBtn4:hover, #MRcopyBtn5:hover {
-    width: 5%;
-    height: 7%;
-    padding: 4px;
-    border-radius: 10px;
+    width: 7%;
+    height: 9%;
+    padding: 7px;
+    border-radius: 14px;
     border: solid 2px;
     outline-style: none;
     outline-color: none;
@@ -148,34 +148,33 @@ h1:hover {
 }
 
 #MRdeleteBtn1, #MRdeleteBtn2, #MRdeleteBtn3, #MRdeleteBtn4, #MRdeleteBtn5 {
-    width: 5%;
-    height: 7%;
-    padding: 4px;
+    width: 7%;
+    height: 9%;
+    padding: 7px;
     position: absolute;
-    border-radius: 15px;
+    border-radius: 18px;
     border: solid 2px black;
     outline-style: none;
     outline-color: none;
     background-color: transparent;
     color: red;
     cursor: pointer;
-    right: 9%;
+    right: 5%;
     transition: 0.2s ease-in-out;
 }
 
 #MRdeleteBtn1:hover, #MRdeleteBtn2:hover, #MRdeleteBtn3:hover, #MRdeleteBtn4:hover, #MRdeleteBtn5:hover {
-    width: 5%;
-    height: 7%;
-    padding: 4px;
+    width: 7%;
+    height: 9%;
+    padding: 7px;
     position: absolute;
-    border-radius: 15px;
+    border-radius: 14px;
     border: solid 2px black;
     outline-style: none;
     outline-color: none;
     background-color: #d70000;
     color: black;
     cursor: pointer;
-    right: 9%;
     transition: 0.2s ease-in-out;
 }
 
@@ -205,8 +204,8 @@ h1:hover {
     height: 40%;
     padding: 5px;
     font-size: small;
-    left: 10%;
-    top: 15%;
+    left: 5%;
+    top: 20%;
     cursor: default;
 }
 
