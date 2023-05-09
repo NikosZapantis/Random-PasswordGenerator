@@ -4,8 +4,33 @@ const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
 const NUMBERS = "0123456789";
 const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?'~/\\";
 
-const MAX_RECENT_PASSWORDS = 5; // Maximum number of recent passwords to display
-let recentPasswords = []; // Array to store the generated passwords
+const MAX_RECENT_PASSWORDS = 5; //Maximum number of recent passwords to display
+
+//Loading recent passwords array from localStorage
+let recentPasswords = JSON.parse(localStorage.getItem('recentPasswords')) || [];
+
+function loadRecentPasswords() {
+  //Getting the recent passwords from localStorage
+  const storedPasswords = localStorage.getItem('recentPasswords');
+
+  //If there are stored passwords, I'm parsing and assigning them to the recentPasswords array
+  if (storedPasswords) {
+    recentPasswords = JSON.parse(storedPasswords);
+  }
+
+  //Loop through the recent passwords array and updating the Fpass fields
+  for (let i = 1; i <= MAX_RECENT_PASSWORDS; i++) {
+    const recentPassword = recentPasswords[recentPasswords.length - i];
+    const fieldId = `Fpass${i}`;
+    if (recentPassword) {
+      document.getElementById(fieldId).value = recentPassword;
+    } else {
+      document.getElementById(fieldId).value = '';
+    }
+  }
+}
+
+
 
 function showAmount(newAmount) {
   
@@ -103,6 +128,9 @@ function generatePass() {
       document.getElementById(fieldId).value = '';
     }
   }
+
+  // Save recent passwords array to local storage
+  localStorage.setItem('recentPasswords', JSON.stringify(recentPasswords));
 }
 
 //?DONE todo: Check if the password var is the same with one of the passwords of the most-recent list (No need to check the display because it's the most recent password)
@@ -196,6 +224,7 @@ function CopyPass(id) {
   }else {
 
     alert("Please click to generate a password first.❌");
+    return;
   }
 }
 
